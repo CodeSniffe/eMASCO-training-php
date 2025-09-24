@@ -5,7 +5,7 @@ This guide walks you step-by-step to set up a basic Laravel backend with authent
 
 > \*Please make sure you have php and composer on your machine
 
-> \*\*\*And you have replace the keys in the .env
+> \***And you have replace the keys in the .env 
 
 ## 🛠️ Project Setup
 
@@ -43,9 +43,9 @@ This will:
 -   Register provider: App\Providers\SwaggerUiServiceProvider
 -   Setup default route for Swagger UI at: http://localhost:8000/swagger
 
-2. 🗂 Create the OpenAPI Spec (JSON Format)
+2. 🗂 Update the OpenAPI Spec (JSON Format)
 
-Create the file:
+Update the file:
 **resources/swagger/openapi.json**
 
 Use this minimal working example:
