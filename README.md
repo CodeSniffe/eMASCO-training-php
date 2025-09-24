@@ -138,7 +138,7 @@ Visit: http://localhost:8000/swagger
 
 You should now see Swagger UI with your /api/hello endpoint listed and documented.
 
-## Setup Book API
+## 📚 Setup Book API
 
 1. Create BookController
 
@@ -842,7 +842,7 @@ Route::post('/login', [UserController::class, 'login']);
 
 9. Now, you can try the login function. It should return a JWT token.
 
-## eMASCO APIs
+## 💪 eMASCO APIs
 
 ### Setup MASCO Jobs
 
