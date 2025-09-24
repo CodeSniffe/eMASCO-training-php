@@ -1,13 +1,72 @@
 {
-    "openapi": "3.0.0",
+    "openapi": "3.0.3",
     "info": {
-        "title": "Hello API",
+        "title": "Combined API",
+        "description": "This API combines Hello, Books, and Auth (JWT) endpoints.",
         "version": "1.0.0"
     },
+    "tags": [
+        {
+            "name": "Hello",
+            "description": "Simple greeting endpoint"
+        },
+        {
+            "name": "Books",
+            "description": "Manage books with mocked data"
+        },
+        {
+            "name": "Auth",
+            "description": "JWT Authentication and Profile"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Book": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "string", "example": "12345" },
+                    "title": {
+                        "type": "string",
+                        "example": "The Great Gatsby"
+                    },
+                    "author": {
+                        "type": "string",
+                        "example": "F. Scott Fitzgerald"
+                    },
+                    "publishedYear": { "type": "integer", "example": 1925 }
+                }
+            },
+            "BookInput": {
+                "type": "object",
+                "required": ["title", "author", "publishedYear"],
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "example": "To Kill a Mockingbird"
+                    },
+                    "author": { "type": "string", "example": "Harper Lee" },
+                    "publishedYear": { "type": "integer", "example": 1960 }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
     "paths": {
         "/api/hello": {
             "get": {
                 "summary": "Say Hello",
+                "tags": ["Hello"],
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -16,9 +75,7 @@
                                 "schema": {
                                     "type": "object",
                                     "properties": {
-                                        "message": {
-                                            "type": "string"
-                                        }
+                                        "message": { "type": "string" }
                                     }
                                 }
                             }
@@ -96,9 +153,7 @@
                         "name": "id",
                         "in": "path",
                         "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
+                        "schema": { "type": "string" }
                     }
                 ],
                 "responses": {
@@ -127,46 +182,50 @@
                     }
                 }
             }
-        }
-    },
-    "components": {
-        "schemas": {
-            "Book": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "example": "12345"
-                    },
-                    "title": {
-                        "type": "string",
-                        "example": "The Great Gatsby"
-                    },
-                    "author": {
-                        "type": "string",
-                        "example": "F. Scott Fitzgerald"
-                    },
-                    "publishedYear": {
-                        "type": "integer",
-                        "example": 1925
+        },
+        "/api/login": {
+            "post": {
+                "summary": "Login and get JWT token",
+                "tags": ["Auth"],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": ["email", "password"],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                }
+                            }
+                        }
                     }
-                }
-            },
-            "BookInput": {
-                "type": "object",
-                "required": ["title", "author", "publishedYear"],
-                "properties": {
-                    "title": {
-                        "type": "string",
-                        "example": "To Kill a Mockingbird"
+                },
+                "responses": {
+                    "200": {
+                        "description": "JWT Token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "token": { "type": "string" },
+                                        "token_type": { "type": "string" },
+                                        "expires_in": { "type": "integer" }
+                                    }
+                                }
+                            }
+                        }
                     },
-                    "author": {
-                        "type": "string",
-                        "example": "Harper Lee"
-                    },
-                    "publishedYear": {
-                        "type": "integer",
-                        "example": 1960
+                    "401": {
+                        "description": "Invalid credentials"
                     }
                 }
             }
