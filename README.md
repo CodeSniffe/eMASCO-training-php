@@ -407,8 +407,6 @@ Route::post('/books', [BookController::class, 'addBook']);
 6. Now, everything should be set. Now run
 
 ```bash
-php artisan config:clear
-php artisan route:clear
 php artisan serve
 ```
 
