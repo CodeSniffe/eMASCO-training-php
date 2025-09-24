@@ -5,7 +5,7 @@ This guide walks you step-by-step to set up a basic Laravel backend with authent
 
 > \*Please make sure you have php and composer on your machine
 
-> \***And you have replace the keys in the .env 
+> \*\*\*And you have replace the keys in the .env
 
 ## 🛠️ Project Setup
 
@@ -112,7 +112,13 @@ return [
 Edit **routes/api.php** and add:
 
 ```php
+<?php
+
 use Illuminate\Support\Facades\Route;
+
+Route::get('/health', function () {
+    return response()->json(['status' => 'ok']);
+});
 
 Route::get('/hello', function () {
     return response()->json(['message' => 'Hello from Laravel API!']);
