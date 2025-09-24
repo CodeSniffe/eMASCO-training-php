@@ -228,13 +228,34 @@ Route::post('/books', [BookController::class, 'addBook']);
 
 ```json
 {
-    "openapi": "3.0.3",
+    "openapi": "3.0.0",
     "info": {
-        "title": "Books API",
-        "description": "A simple API to manage books (mocked data).",
+        "title": "Hello API",
         "version": "1.0.0"
     },
     "paths": {
+        "/api/hello": {
+            "get": {
+                "summary": "Say Hello",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/books": {
             "get": {
                 "summary": "List all books",
