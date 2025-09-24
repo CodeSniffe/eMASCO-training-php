@@ -789,25 +789,6 @@ Route::post('/login', [UserController::class, 'login']);
                 }
             }
         },
-        "/api/profile": {
-            "get": {
-                "summary": "Get user profile",
-                "tags": ["Auth"],
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Returns mock user profile"
-                    },
-                    "401": {
-                        "description": "Unauthorized"
-                    }
-                }
-            }
-        },
         "/api/login": {
             "post": {
                 "summary": "Login and get JWT token",
