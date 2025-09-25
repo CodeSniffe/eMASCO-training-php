@@ -850,7 +850,7 @@ Route::post('/login', [UserController::class, 'login']);
 
 ## 💪 eMASCO APIs
 
-### Setup MASCO Jobs
+### 🔍 Setup MASCO Jobs
 
 1. Now create a **MASCO** Model
 
@@ -1312,7 +1312,7 @@ Route::middleware([JwtMiddleware::class])
 }
 ```
 
-### Setup MASCO STEM Jobs
+### ✨ Setup MASCO STEM Jobs
 
 1. Let's create a new controller file for STEM jobs for easier management
 
@@ -1720,7 +1720,7 @@ class CategoryController extends Controller
             }
         },
 
-        "/category/{type}": {
+        "/api/category/{type}": {
             "get": {
                 "summary": "Show category items filtered by type",
                 "tags": ["Category"],
