@@ -1852,8 +1852,6 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 5. Restart the server in the terminal. Then, run
 
 ```bash
-php artisan config:clear
-php artisan route:clear
 php artisan serve
 ```
 
