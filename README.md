@@ -109,7 +109,7 @@ return [
 
 5. 🧪 Add Example Route
 
-Edit **routes/api.php** and add:
+Replace **routes/api.php** file with the code block below:
 
 ```php
 <?php
@@ -128,8 +128,12 @@ Route::get('/hello', function () {
 6. 🧹 Clear Config and Serve
 
 ```bash
-php artisan config:clear
 php artisan serve
+```
+> If you see browser showing 500 | server error
+Try running command below
+```bash
+php artisan key:generate
 ```
 
 7. 🌐 View Swagger UI
