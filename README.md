@@ -4,7 +4,9 @@ Welcome! 👋
 This guide walks you step-by-step to set up a basic Laravel backend with authentication books, eMASCO jobs and Swagger API docs.
 
 > \*Please make sure you have php and composer on your machine
+
 > \**Create the .env file if you don't have the env file
+
 > \***And you have replace the keys in the .env
 
 ## 🛠️ Project Setup
