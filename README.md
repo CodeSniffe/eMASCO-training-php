@@ -1845,8 +1845,8 @@ use App\Http\Middleware\JwtMiddleware;
 
 Route::middleware([JwtMiddleware::class])->group(function () {
     Route::get('/masco', [MascoController::class, 'index']);
-    Route::get('/category', [CategoryController::class, 'index']);
-});
+    Route::get('/category/{type}', [CategoryController::class, 'index'])
+        ->whereIn('type', ['tvet', 'stem', 'green', 'gig']);});
 ```
 
 5. Restart the server in the terminal. Then, run
