@@ -5,9 +5,9 @@ This guide walks you step-by-step to set up a basic Laravel backend with authent
 
 > ❗️Please make sure you have php and composer on your machine
 
-> ❗️❗️Create the .env file if you don't have the env file
+> ❗️❗️ Rename the **.env.example** to **.env**  file if you don't have the env file
 
-> ❗️❗️❗️And you have replace the keys in the .env
+> ❗️❗️❗️And replace the keys in the .env
 
 ## 🛠️ Project Setup
 
